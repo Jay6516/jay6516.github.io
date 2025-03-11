@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAY音乐宇宙</title>
+    <style>
+                * {
+                    margin: 0; 	
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+        
+                body {
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    min-height: 200vh; /* 滚动 */
+                }
+        
+                /* 导航栏容器 */
+                .nav-wrapper {
+                    position: fixed;
+                    top: 0;
+                    width: 100%;
+                    height: 25px; /* 可见部分 */
+                    overflow: hidden;
+                    z-index: 1000;
+                    transition: height 0.78s ease;
+                }
+        
+                /* 鼠标悬停展开 */
+                .nav-wrapper:hover {
+                    height: 120px; /* 完全展开 */
+                }
+        
+                /* 导航栏主体 */
+                .navbar {
+                    background-color: rgba(46, 79, 88, 0.86);
+                    padding: 1rem;
+                    transform: translateY(-45px); /* 初始隐藏位置 */
+                    transition: transform 0.42s ease;
+                }
+        
+                .nav-wrapper:hover .navbar {
+                    transform: translateY(0); /* 完全显示 */
+                }
+        
+                .nav-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+        
+                .logo {
+                    color: aliceblue;
+                    font-size: 1.5rem;
+                    text-decoration: none;
+                    opacity: 0;
+                    transition: opacity 0.4s ease;
+                }
+        
+                .nav-wrapper:hover .logo {
+                    opacity: 1;
+                }
+        
+                .nav-links {
+                    display: flex;
+                    list-style: none;
+                }
+        
+                .nav-links li {
+                    margin-left: 2rem;
+                }
+        
+                .nav-links a {
+                    color: aliceblue;
+                    text-decoration: none;
+                    opacity: 0;
+                    transform: translateY(25px);
+                    transition: all 0.65s ease;
+                }
+        
+                .nav-wrapper:hover .nav-links a {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+        
+                .nav-links a:hover {
+                    color: #800000;
+                }
+        
+                /* 内容区域 */
+                .content {
+                    margin-top: 50px; /* 留出导航栏空间 */
+                    padding: 2rem;
+                    max-width: 1200px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+        		
+
+        /* 周杰伦音乐宇宙 */
+        .header {
+            height: 50vh;
+			overflow:hidden;
+			margin:-15px 20px 0 20px;
+			padding-top:-100px;
+			border-radius:0 0 15px 15px;
+			box-shadow: 5px 5px 10px #222222;
+            background: linear-gradient(rgba(44, 55, 6, 0.6), rgba(66, 77, 88, 0.5)),
+			 url("C:/Users/18472/Documents/HBuilderProjects/背景.png");/*渐变＋背景图*/
+			background-size: 103%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        /* 内容区块样式 */
+        .section {
+            padding: 1rem 1rem;
+            margin: 1.5rem 0;
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+        }
+
+        /* 时间线样式 */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 10px;
+            margin: 5px 10px 0 0px;
+            background-color:lightgrey;
+            border-left: 0px solid #800000;
+            position: relative;
+        }
+
+        /* 相册网格grid布局 */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.8rem;
+            margin-top: 1.6rem;
+        }
+
+        .gallery img {
+            width: 97%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /*留言板 */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.6rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            
+            .nav-links li {
+                margin-left: 0;
+                margin-bottom:0rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="logo">JAY音乐宇宙</a>
+                <ul class="nav-links">
+                    <li><a href="#home">首　　页</a></li>
+                    <li><a href="#about">人物档案</a></li>
+                    <li><a href="#achievements">音乐里程碑</a></li>
+                    <li><a href="#gallery">光影瞬间</a></li>
+                    <li><a href="#contact">杰迷互动</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <header class="header" id="home">
+        <div class="header-content">
+            <h1 style="font-size: 4.5rem; margin-bottom: 2rem;">周杰伦音乐宇宙</h1>
+            <p style="font-size: 1.2rem;">用音乐构建的奇幻世界</p>
+        </div>
+    </header>
+    <main class="content">
+        <!-- 人物档案 -->
+        <section class="section" id="about">
+            <h2>音乐诗人档案</h2>
+            <div class="profile-card">
+                <img src="C:\Users\18472\Documents\HBuilderProjects\档案.png" alt="周杰伦肖像" 
+                     style="float: left; width: 135px; margin-right: 2rem;">
+                <div>
+                    <p><strong>本名：</strong><a href="https://baike.baidu.com/item/%E5%91%A8%E6%9D%B0%E4%BC%A6/129156" style="color:lightyellow 85%">周杰伦 (Jay Chou)</a></p>
+                    <p><strong>生日：</strong><a href="https://baike.baidu.com/item/%E5%91%A8%E6%9D%B0%E4%BC%A6/129156" style="color:lightyellow 85%">1979年1月18日</a></p>
+                    <p><strong>音乐流派：</strong><a href="https://baike.baidu.com/item/%E5%91%A8%E6%9D%B0%E4%BC%A6/129156" style="color:lightyellow 85%">流行</a>、<a href="https://baike.baidu.com/item/%E5%91%A8%E6%9D%B0%E4%BC%A6/129156" style="color:lightyellow 85%">R&B</a>、<a href="https://baike.baidu.com/item/%E5%91%A8%E6%9D%B0%E4%BC%A6/129156" style="color:lightyellow 85%">古典</a>、<a href="https://baike.baidu.com/item/%E5%91%A8%E6%9D%B0%E4%BC%A6/129156" style="color:lightyellow 85%">嘻哈</a>、<a href="https://baike.baidu.com/item/%E5%91%A8%E6%9D%B0%E4%BC%A6/129156" style="color:lightyellow 85%">说唱</a>、<a href="https://baike.baidu.com/item/%E5%91%A8%E6%9D%B0%E4%BC%A6/129156" style="color:lightyellow 85%">中国风</a>等</p>
+                    <p><a href="https://baike.baidu.com/item/%E5%91%A8%E6%9D%B0%E4%BC%A6/129156#4" style="color: #444444"><strong>代表作品</a>：</strong><a href="https://baike.baidu.com/item/%E5%A4%9C%E6%9B%B2/3886391"  style="color:lightyellow 85%">《夜曲》</a> <a href="https://baike.baidu.com/item/%E5%8D%8A%E5%B2%9B%E9%93%81%E7%9B%92/2268287" style="color:lightyellow 85%">《半岛铁盒》</a> <a href="https://baike.baidu.com/item/%E9%9D%92%E8%8A%B1%E7%93%B7/9864403?fromModule=search-result_lemma" style="color:lightyellow 85%">《青花瓷》</a> <a href="https://baike.baidu.com/item/%E7%AE%80%E5%8D%95%E7%88%B1/3056578" style="color:lightyellow 85%">《简单爱》</a>等</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 音乐成就 -->
+        <section class="section" id="achievements">
+            <h2>音乐里程碑</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>2000 ✦ <a href="https://baike.baidu.com/item/Jay/5291" style="color:black aquamarine">首张专辑《Jay》</a></h3>
+                    <p>开启华语乐坛新纪元，获得金曲奖最佳专辑</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2005 ✦<a href="https://ent.cctv.com/2019/02/01/VIDE6qUYPmnIsKxvuK8LEhB6190201.shtml" style="color:black aquamarine"> 《龙拳》首登春晚舞台</a></h3>
+                    <p>表演将中国风音乐魅力展现的淋漓尽致</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2012 ✦<a href="https://baike.baidu.com/item/%E5%91%A8%E6%9D%B0%E4%BC%A6/129156#2-4" style="color:black aquamarine"> 全球百大创意人物</a></h3>
+                    <p>入选《Fast Company》杂志评选</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 相册集 -->
+        <section class="section" id="gallery">
+            <h2>光影瞬间</h2>
+            <div class="gallery">
+                <img src="C:\Users\18472\Documents\HBuilderProjects\演唱会现场.png"/18472/Documents/HBuilderProjects/演唱会现场.png"" alt="演唱会现场">
+                <img src="C:\Users\18472\Documents\HBuilderProjects\录音室创作.png" alt="录音室创作">
+                <img src="C:\Users\18472\Documents\HBuilderProjects\颁奖.png" alt="颁奖典礼">
+                <img src="C:\Users\18472\Documents\HBuilderProjects\MV拍摄地.png" alt="MV拍摄">
+            </div>
+        </section>
+
+        <!-- 互动表单 -->
+        <section class="section" id="contact">
+            <h2>杰迷留言板</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="你的名字" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="电子邮箱" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="写下你的音乐故事..." required></textarea>
+                </div>
+                <button type="submit" 
+                        style="background: #800000;border-radius:6px; color: white; padding: 1rem 2rem; border:black;">
+                    发送音乐电波
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer style="background: #2e4f58; color: white; text-align: center; padding: 1.5rem;">
+        <p> 2025 JAY音乐宇宙 致敬华语乐坛传奇</p>
+        <div style="margin-top: 1rem;">
+            <a href="https://weibo.com/u/1165631310" style="color: #fff; margin: 0 1rem;">微博</a>
+			 <a href="https://y.qq.com/n/ryqq/search?w=%E5%91%A8%E6%9D%B0%E4%BC%A6&t=song&remoteplace=txt.yqq.top" style="color: #fff; margin: 0 1rem;">QQ音乐</a>
+            <a href="https://www.kuaishou.com/profile/3xpisbn8du3affa" style="color: #fff; margin: 0 1rem;">快手</a>
+        </div>
+    </footer>
+</body>
+</html>
